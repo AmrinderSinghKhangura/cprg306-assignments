@@ -4,9 +4,8 @@ import TopBar from "../globalComponents/topBar";
 
 export default function Page() {
     return (
-        <main className=" bg-white min-h-screen flex items-center justify-center flex-col  ">
+        <main className=" bg-gray-300 min-h-screen flex items-center flex-col  ">
             <TopBar />
-            <header></header>
             <h1 className="bg-yellow-600  text-4xl p-5 w-1/3 ">
                 Shopping List
             </h1>

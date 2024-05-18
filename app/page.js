@@ -1,13 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import TopBar from "./globalComponents/topBar";
+import "./globals.css";
 
 export default function Home() {
     return (
-        <main className="bg-orange-200 h-screen ">
-            <TopBar />
-            <h1>CPRG 306: Web Development 2 - Assignments</h1>
-            <Link href="/week-2">Week - 2</Link>
+        <main className="monkeyCoverGif overflow-y-auto ">
+            <div className="min-h-svh">
+                <TopBar />
+                <h1 className="text-5xl text-center text-black p-3 font-extrabold ">
+                    CPRG 306: Web Development 2 - Assignments
+                </h1>
+                <Link
+                    className="text-2xl bg-purple-200 text-black py-1 px-5 mx-6 border-2 border-black rounded-lg"
+                    href="/week-2"
+                >
+                    Week - 2
+                </Link>
+            </div>
         </main>
     );
 }

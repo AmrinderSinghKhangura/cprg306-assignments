@@ -4,11 +4,13 @@ import React from "react";
 
 const StudentInfo = () => {
     return (
-        <div className="bg-cyan-700 p-5 flex flex-col items-center">
-            <h1 className="m-6 bg-purple-300 ">Amrinder Singh Khangura</h1>
+        <div className="p-5 flex flex-col items-center">
+            <h1 className="m-6 bg-purple-200 text-black rounded-lg p-1 ">
+                Amrinder Singh Khangura
+            </h1>
             <h2>
                 <a
-                    className="bg-lime-400 p-2 m-2"
+                    className="bg-lime-400 p-2 m-2 text-black border-2 border-black rounded-lg"
                     href="https://github.com/AmrinderSinghKhangura"
                     target="blank"
                 >

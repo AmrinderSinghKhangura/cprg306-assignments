@@ -90,8 +90,9 @@ function itemList() {
 
     return (
         <div className="flex flex-row flex-wrap ">
-            {listArray.map((item) => (
+            {listArray.map((item, index) => (
                 <Item
+                    key={index}
                     name={item.name}
                     quantity={item.quantity}
                     category={item.category}

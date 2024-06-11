@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "./item";
 import items from "./items.json";
-import { useState } from "react";
 
 function sortItems(list, sortBy) {
   return [...list].sort((a, b) => {
@@ -14,20 +13,20 @@ function sortItems(list, sortBy) {
   });
 }
 
-function itemList() {
+function ItemList() {
+  // Component name starts with an uppercase letter
   const [sortBy, setSortBy] = useState("name");
   const [list, setList] = useState(sortItems(items, sortBy));
+
   useEffect(() => {
-    console.log(sortBy);
     let sorted = list;
     if (sortBy === "name") {
       sorted = sortItems(list, "name");
-      setList(sorted);
     } else if (sortBy === "category") {
       sorted = sortItems(list, "category");
-      setList(sorted);
     }
-  }, [sortBy]);
+    setList(sorted);
+  }, [sortBy, list]);
 
   return (
     <div className="flex flex-col ">
@@ -63,4 +62,4 @@ function itemList() {
   );
 }
 
-export default itemList;
+export default ItemList;

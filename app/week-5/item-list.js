@@ -14,19 +14,12 @@ function sortItems(list, sortBy) {
 }
 
 function ItemList() {
-  // Component name starts with an uppercase letter
   const [sortBy, setSortBy] = useState("name");
   const [list, setList] = useState(sortItems(items, sortBy));
 
   useEffect(() => {
-    let sorted = list;
-    if (sortBy === "name") {
-      sorted = sortItems(list, "name");
-    } else if (sortBy === "category") {
-      sorted = sortItems(list, "category");
-    }
-    setList(sorted);
-  }, [sortBy, list]);
+    setList(sortItems(items, sortBy));
+  }, [sortBy]);
 
   return (
     <div className="flex flex-col ">

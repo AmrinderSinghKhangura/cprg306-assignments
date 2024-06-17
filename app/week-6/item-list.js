@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Item from "./item";
-import items from "./items.json";
 
 function sortItems(list, sortBy) {
   return [...list].sort((a, b) => {
@@ -13,23 +12,16 @@ function sortItems(list, sortBy) {
   });
 }
 
-function ItemList() {
-  // Component name starts with an uppercase letter
+function ItemList({ list: initialList }) {
   const [sortBy, setSortBy] = useState("name");
-  const [list, setList] = useState(sortItems(items, sortBy));
+  const [list, setList] = useState(sortItems(initialList, sortBy));
 
   useEffect(() => {
-    let sorted = list;
-    if (sortBy === "name") {
-      sorted = sortItems(list, "name");
-    } else if (sortBy === "category") {
-      sorted = sortItems(list, "category");
-    }
-    setList(sorted);
-  }, [sortBy, list]);
+    setList(sortItems(initialList, sortBy));
+  }, [sortBy, initialList]);
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <div className="flex justify-between px-5">
         <button
           onClick={() => setSortBy("name")}

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-function NewItem() {
+function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -10,9 +10,7 @@ function NewItem() {
     e.preventDefault();
     const item = { name, quantity, category };
     console.log(item);
-    alert(
-      "Name: " + name + "\nQuantity: " + quantity + "\nCategory: " + category
-    );
+    onAddItem(item);
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -36,9 +34,13 @@ function NewItem() {
         value={quantity}
         min={1}
         max={99}
-        onChange={(e) => setQuantity(e.target.value)}
+        onChange={(e) => setQuantity(Number(e.target.value))}
       />
-      <select onChange={setCategory} className="w-1/2 self-center text-black">
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="w-1/2 self-center text-black"
+      >
         <option value="produce">Produce</option>
         <option value="dairy">Dairy</option>
         <option value="bakery">Bakery</option>
@@ -46,7 +48,7 @@ function NewItem() {
         <option value="frozen_foods">Frozen Foods</option>
         <option value="canned_goods">Canned Goods</option>
         <option value="dry_goods">Dry Goods</option>
-        <option value="beverages">beverages</option>
+        <option value="beverages">Beverages</option>
         <option value="snacks">Snacks</option>
         <option value="household">Household</option>
         <option value="other">Other</option>
@@ -54,7 +56,6 @@ function NewItem() {
       <button
         className="bg-gray-200 text-black w-1/4 self-center m-10 rounded-xl"
         type="submit"
-        onClick={handleSubmit}
       >
         Submit
       </button>

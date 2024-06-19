@@ -42,6 +42,12 @@ export default function Home() {
           >
             Week - 6
           </Link>
+          <Link
+            href="/week-7"
+            className="text-2xl bg-purple-200 text-black py-1 px-5 m-3 border-2 border-black rounded-lg"
+          >
+            Week - 7
+          </Link>
         </div>
       </div>
     </main>
